@@ -9172,7 +9172,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../atele-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -9215,7 +9215,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>$USER_HOME$/.subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -9264,7 +9264,8 @@
       <workItem from="1578398466434" duration="1782000" />
       <workItem from="1578402493781" duration="1466000" />
       <workItem from="1578423786893" duration="2293000" />
-      <workItem from="1578430157266" duration="1881000" />
+      <workItem from="1578430157266" duration="2038000" />
+      <workItem from="1578432696210" duration="1465000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1575127220999</created>
@@ -9452,7 +9453,6 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
-    <MESSAGE value="test" />
     <MESSAGE value="base" />
     <MESSAGE value="order changes" />
     <MESSAGE value="order routes" />
@@ -9466,7 +9466,8 @@
     <MESSAGE value="26/12" />
     <MESSAGE value="rating and other edits" />
     <MESSAGE value="edits" />
-    <option name="LAST_COMMIT_MESSAGE" value="edits" />
+    <MESSAGE value="test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test" />
   </component>
   <component name="WindowStateProjectService">
     <state x="311" y="58" width="800" height="677" key="#Deployment" timestamp="1578398075865">
@@ -9505,10 +9506,10 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="269" y="86" width="1039" height="622" key="DiffContextDialog/67.27.1299.741@67.27.1299.741" timestamp="1578398740110" />
-    <state x="499" y="154" width="447" height="484" key="FileChooserDialogImpl" timestamp="1578426393013">
+    <state x="499" y="154" width="447" height="484" key="FileChooserDialogImpl" timestamp="1578434246776">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="154" width="447" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1578426393013" />
+    <state x="499" y="154" width="447" height="484" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1578434246776" />
     <state x="359" y="110" width="859" height="574" key="RollbackChangesDialog" timestamp="1577554457908">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
@@ -9533,5 +9534,13 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="380" y="175" key="run.anything.popup/67.27.1299.741@67.27.1299.741" timestamp="1576351392213" />
+    <state x="549" y="190" width="324" height="412" key="svn.repositoryBrowser" timestamp="1578434225122">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="549" y="190" width="324" height="412" key="svn.repositoryBrowser/67.27.1299.741@67.27.1299.741" timestamp="1578434225122" />
+    <state x="526" y="166" width="361" height="460" key="svn4idea.import.options" timestamp="1578434220256">
+      <screen x="67" y="27" width="1299" height="741" />
+    </state>
+    <state x="526" y="166" width="361" height="460" key="svn4idea.import.options/67.27.1299.741@67.27.1299.741" timestamp="1578434220256" />
   </component>
 </project>
