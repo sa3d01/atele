@@ -53,14 +53,6 @@ class User extends Authenticatable
             $this->attributes['image'] = $filename;
         }
     }
-    public function setAdminStatusAttribute()
-    {
-        if ($this->attributes['type'] == 'user') {
-            $this->attributes['admin_status'] = 'approved';
-        }else{
-            $this->attributes['admin_status'] = 'pinned';
-        }
-    }
 
     public function getImageAttribute()
     {
@@ -77,7 +69,7 @@ class User extends Authenticatable
         }
     }
 
-    protected $index_fields = ['id', 'name', 'type', 'mobile', 'email', 'image', 'status','site_url'];
+    protected $index_fields = ['id', 'name', 'type', 'mobile', 'email', 'image','site_url','note'];
 
     public function static_model()
     {
@@ -87,8 +79,5 @@ class User extends Authenticatable
         }
         return $arr;
     }
-//    public function orders()
-//    {
-//        return $this->hasMany(Order::class, 'user_id', 'id');
-//    }
+
 }
