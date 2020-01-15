@@ -132,7 +132,6 @@ class UserController extends Controller
         }else{
             return response()->json(['status' => 400, 'msg' => 'يوجد مشكلة بالبيانات'],400);
         }
-
     }
 
     public function update_profile(Request $request)
