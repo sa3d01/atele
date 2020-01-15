@@ -124,11 +124,15 @@ class UserController extends Controller
         if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password') ,'admin_status'=>'blocked'])){
             $msg = 'تم حظرك من قبل ادارة التطبيق';
             return response()->json(['status' => 400, 'msg' => $msg]);
+        }elseif (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
+            $this->update_apiToken($user);
+            if($user->activation_code != null)
+                return response()->json(['status' => 200,'activation_code'=>$user->activation_code,'apiToken'=>$user->apiToken,'admin_status'=>$user->admin_status, 'data' => $user->static_model()]);
+            return response()->json(['status' => 200,'apiToken'=>$user->apiToken,'admin_status'=>$user->admin_status, 'data' => $user->static_model()]);
+        }else{
+            return response()->json(['status' => 400, 'msg' => 'يوجد مشكلة بالبيانات'],400);
         }
-        $this->update_apiToken($user);
-        if($user->activation_code != null)
-            return response()->json(['status' => 200,'activation_code'=>$user->activation_code,'apiToken'=>$user->apiToken,'admin_status'=>$user->admin_status, 'data' => $user->static_model()]);
-        return response()->json(['status' => 200,'apiToken'=>$user->apiToken,'admin_status'=>$user->admin_status, 'data' => $user->static_model()]);
+
     }
 
     public function update_profile(Request $request)
