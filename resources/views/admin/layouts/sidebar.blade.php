@@ -22,43 +22,43 @@
                         <li><a href="{{route('provider.create')}}">إضافة</a></li>
                     </ul>
                 </li>
-                <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i
-                            class="fa fa-chart-line"></i><span>إدارة فترات العمل</span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('shift.index')}}">عرض الكل</a></li>
-                        <li><a href="{{route('shift.create')}}">إضافة</a></li>
-                    </ul>
-                </li>
-                <li class="text-muted menu-title"></li>
-                <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i
-                            class="fa fa-server"></i><span>إدارة الأقسام</span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('category.index')}}">الأقسام الرئيسية</a></li>
-                        <li><a href="{{route('partial_categories')}}">الأقسام الفرعية</a></li>
-                        <li><a href="{{route('category.create')}}">إضافة</a></li>
-                    </ul>
-                </li>
-                <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i
-                            class="fa fa-people-carry"></i><span>إدارة الخدمات</span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('service.index')}}">عرض الكل</a></li>
-                        <li><a href="{{route('service.create')}}">إضافة</a></li>
-                    </ul>
-                </li>
-                <li class="text-muted menu-title"></li>
-                <li class="has_sub">
-                    <a href="javascript:void(0);" class="waves-effect"><i
-                            class="fa fa-cart-plus"></i><span>إدارة الطلبات</span></a>
-                    <ul class="list-unstyled">
-                        <li><a href="{{route('order.status',['waiting'])}}">الطلبات الجديدة</a></li>
-                        <li><a href="{{route('order.status',['in_progress'])}}">الطلبات الجارية</a></li>
-                        <li><a href="{{route('order.status',['done'])}}">الطلبات المكتملة</a></li>
-                        <li><a href="{{route('order.status',['cancelled'])}}">الطلبات المرفوضة</a></li>
-                    </ul>
-                </li>
+{{--                <li class="has_sub">--}}
+{{--                    <a href="javascript:void(0);" class="waves-effect"><i--}}
+{{--                            class="fa fa-chart-line"></i><span>إدارة فترات العمل</span></a>--}}
+{{--                    <ul class="list-unstyled">--}}
+{{--                        <li><a href="{{route('shift.index')}}">عرض الكل</a></li>--}}
+{{--                        <li><a href="{{route('shift.create')}}">إضافة</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--                <li class="text-muted menu-title"></li>--}}
+{{--                <li class="has_sub">--}}
+{{--                    <a href="javascript:void(0);" class="waves-effect"><i--}}
+{{--                            class="fa fa-server"></i><span>إدارة الأقسام</span></a>--}}
+{{--                    <ul class="list-unstyled">--}}
+{{--                        <li><a href="{{route('category.index')}}">الأقسام الرئيسية</a></li>--}}
+{{--                        <li><a href="{{route('partial_categories')}}">الأقسام الفرعية</a></li>--}}
+{{--                        <li><a href="{{route('category.create')}}">إضافة</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--                <li class="has_sub">--}}
+{{--                    <a href="javascript:void(0);" class="waves-effect"><i--}}
+{{--                            class="fa fa-people-carry"></i><span>إدارة الخدمات</span></a>--}}
+{{--                    <ul class="list-unstyled">--}}
+{{--                        <li><a href="{{route('service.index')}}">عرض الكل</a></li>--}}
+{{--                        <li><a href="{{route('service.create')}}">إضافة</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--                <li class="text-muted menu-title"></li>--}}
+{{--                <li class="has_sub">--}}
+{{--                    <a href="javascript:void(0);" class="waves-effect"><i--}}
+{{--                            class="fa fa-cart-plus"></i><span>إدارة الطلبات</span></a>--}}
+{{--                    <ul class="list-unstyled">--}}
+{{--                        <li><a href="{{route('order.status',['waiting'])}}">الطلبات الجديدة</a></li>--}}
+{{--                        <li><a href="{{route('order.status',['in_progress'])}}">الطلبات الجارية</a></li>--}}
+{{--                        <li><a href="{{route('order.status',['done'])}}">الطلبات المكتملة</a></li>--}}
+{{--                        <li><a href="{{route('order.status',['cancelled'])}}">الطلبات المرفوضة</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li class="text-muted menu-title"></li>
                 <li class="has_sub">
                     <a href="{{route('setting.get_setting')}}" class="waves-effect"><i class="md md-settings"></i><span> الإعدادات العامة</span></a>

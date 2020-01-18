@@ -3,11 +3,11 @@
         <div class="text-center">
             <a href="{{url('/admin')}}" class="logo">
             <i class="icon-c-logo">
-                <img src="{{asset('panel/assets/images/amerni.png')}}" height="42" style=" -webkit-filter:brightness(90%); /* Safari 6.0 - 9.0 */
+                <img src="{{asset('panel/assets/images/logo.png')}}" height="42" style=" -webkit-filter:brightness(90%); /* Safari 6.0 - 9.0 */
   filter: brightness(90%);"/>
             </i>
             <span>
-                <img src="{{asset('panel/assets/images/amerni.png')}}" height="42" style=" -webkit-filter:brightness(90%); /* Safari 6.0 - 9.0 */
+                <img src="{{asset('panel/assets/images/logo.png')}}" height="42" style=" -webkit-filter:brightness(90%); /* Safari 6.0 - 9.0 */
   filter: brightness(90%);"/>
             </span>
             </a>

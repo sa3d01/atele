@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return redirect(route('admin.dashboard'));
 });
-
+Auth::routes();
 Route::group(['prefix' => '/admin', 'namespace' => 'Auth'], function () {
     Route::get('/password/reset','AdminForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
     Route::post('/password/email','AdminForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');

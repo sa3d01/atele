@@ -19,6 +19,8 @@ Route::group(['prefix' => 'v1','namespace'=>'Api'], function () {
         Route::post('/login', 'UserController@login');
         Route::post('/activate', 'UserController@activate')->middleware(CheckApiToken::class);
         Route::post('/update', 'UserController@update_profile')->middleware(CheckApiToken::class);
+        Route::post('/update_password', 'UserController@update_password')->middleware(CheckApiToken::class);
+        Route::post('/reset_password', 'UserController@reset_password')->middleware(CheckApiToken::class);
         Route::get('/{id}', 'UserController@show')->middleware(CheckApiToken::class);
     });
     Route::group(['prefix' => '/package'], function () {

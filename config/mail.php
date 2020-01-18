@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 8025),
+    'port' => env('MAIL_PORT', 2525),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'support@atele.sa3d01.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contact@sa3d01.com'),
         'name' => env('MAIL_FROM_NAME', 'atele'),
     ],
 
@@ -84,9 +84,9 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME','akramsmtp'),
+    'username' => env('MAIL_USERNAME','contact@sa3d01.com'),
 
-    'password' => env('MAIL_PASSWORD','NXl0ZXY3eGdsbjUw'),
+    'password' => env('MAIL_PASSWORD','Y7aPntzBKNV8'),
 
     /*
     |--------------------------------------------------------------------------

@@ -157,6 +157,31 @@ class UserController extends Controller
         }
     }
 
+    public function update_password(Request $request)
+    {
+        $validator = Validator::make($request->all(), ['old_pass','new_pass']);
+        if ($validator->fails()){
+            return response()->json(['status' => 400, 'msg' => $validator->errors()->first()],400);
+        }
+        $user=$this->user();
+        if (Auth::attempt(['email' => $user->email, 'password' => $request->input('old_pass')])){
+            $user->update(['password'=>$request['new_pass']]);
+            return response()->json(['status' => 200,'apiToken'=>$user->apiToken, 'data' => $user->static_model()]);
+        }else{
+            return response()->json(['status' => 400, 'msg' => 'كلمة المرور القديمة غير صحيحة'],400);
+        }
+    }
+    public function reset_password(Request $request)
+    {
+        $validator = Validator::make($request->all(), ['password']);
+        if ($validator->fails()){
+            return response()->json(['status' => 400, 'msg' => $validator->errors()->first()],400);
+        }
+        $user=$this->user();
+        $user->update(['password'=>$request['password']]);
+        return response()->json(['status' => 200,'apiToken'=>$user->apiToken, 'data' => $user->static_model()]);
+    }
+
     public function show($id)
     {
         $row = User::find($id);

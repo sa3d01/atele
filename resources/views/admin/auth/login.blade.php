@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
     <meta name="author" content="sa3d01">
-    <link rel="shortcut icon" href="{{asset('panel/assets/images/amerni.png')}}">
+    <link rel="shortcut icon" href="{{asset('panel/assets/images/logo.png')}}">
     <title>لوحة التحكم</title>
     <link href="{{asset('panel/assets/css/bootstrap-rtl.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('panel/assets/css/core.css')}}" rel="stylesheet" type="text/css" />
@@ -53,11 +53,11 @@
                         <button class="btn btn-pink btn-block text-uppercase waves-effect waves-light" type="submit">دخول</button>
                     </div>
                 </div>
-{{--                <div class="form-group m-t-30 m-b-0">--}}
-{{--                    <div class="col-sm-12">--}}
-{{--                        <a href="{{route('admin.password.request')}}" class="text-dark"><i class="fa fa-lock m-r-5"></i>نسيت كلمت المرور ؟</a>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+                <div class="form-group m-t-30 m-b-0">
+                    <div class="col-sm-12">
+                        <a href="{{route('admin.password.request')}}" class="text-dark"><i class="fa fa-lock m-r-5"></i>نسيت كلمت المرور ؟</a>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

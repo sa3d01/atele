@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="sa3d01">
-        <link rel="shortcut icon" href="{{asset('panel/assets/images/amerni.png')}}">
+        <link rel="shortcut icon" href="{{asset('panel/assets/images/logo.png')}}">
 {{--        <link href="{{url('panel/assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css')}}" rel="stylesheet" />--}}
 {{--        <link href="{{url('panel/assets/plugins/switchery/css/switchery.min.css')}}" rel="stylesheet" />--}}
 {{--        <link href="{{url('panel/assets/plugins/multiselect/css/multi-select.css')}}"  rel="stylesheet" type="text/css" />--}}
