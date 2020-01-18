@@ -16,10 +16,12 @@
                 </li>
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i
-                            class="fa fa-bus"></i><span>إدارة الفنيين</span></a>
+                            class="fa fa-shopping-bag"></i><span>إدارة دور الأزياء</span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('provider.index')}}">عرض الكل</a></li>
                         <li><a href="{{route('provider.create')}}">إضافة</a></li>
+                        <li><a href="{{route('provider.new')}}">طلبات الانضمام </a></li>
+                        <li><a href="{{route('provider.approved')}}">دور الأزياء المفعلين</a></li>
+                        <li><a href="{{route('provider.blocked')}}">دور الأزياء المحظورين</a></li>
                     </ul>
                 </li>
 {{--                <li class="has_sub">--}}

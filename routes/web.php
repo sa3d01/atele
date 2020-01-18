@@ -35,5 +35,9 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
     Route::patch('setting/{id}', 'SettingController@update_setting')->name('setting.update_setting');
 //user
     Route::resource('user', 'UserController');
+//provider
+    Route::get('provider/new', 'ProviderController@new_providers')->name('provider.new');
+    Route::get('provider/approved', 'ProviderController@approved_providers')->name('provider.approved');
+    Route::get('provider/blocked', 'ProviderController@blocked_providers')->name('provider.blocked');
     Route::resource('provider', 'ProviderController');
 });
