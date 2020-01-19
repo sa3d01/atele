@@ -14,27 +14,37 @@
                             </b>
                             <hr>
                         </h4>
+                        @if($errors->any())
+                            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </div>
+                        @endif
                         {!! Form::open(['method'=>'post', 'files'=>true, 'enctype' => 'multipart/form-data', 'route'=>[$route.'.store'], 'class' => 'form-row-seperated add_ads_form']) !!}
                         <div class="row">
                             <div class="col-md-12">
-                                @foreach($create_fields as $labels => $fields)
-                                    @if($fields=='image')
-                                        <div class="white-box">
-                                            <label for="input-file-now-custom-1">{{ $labels }}</label>
-                                            <input name="image" type="file" id="input-file-now-custom-1" class="dropify" data-default-file="{{asset('images/user/admin.png')}}"/>
-                                            @if ($errors->has($fields))
-                                                <small class="text-danger">{{ $errors->first($fields) }}</small>
-                                            @endif
-                                        </div>
-                                        <br>
-                                    @else
-                                        <div class="form-group{{ $errors->has($fields) ? ' has-error' : '' }}">
-                                            <label for="title">{{ $labels }}</label>
-                                            {!! Form::text($fields, null, ['class'=>'form-control']) !!}
-                                        </div>
-                                        <br>
-                                    @endif
-                                @endforeach
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="title">الاسم</label>
+                                        {!! Form::text('name', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                                    <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }}">
+                                        <label for="title">رقم الجوال</label>
+                                        {!! Form::number('mobile', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                        <label for="title">البريد الالكترونى</label>
+                                        {!! Form::email('email', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                        <label>كلمة المرور</label>
+                                        {!! Form::text('password', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
                             </div>
                         </div>
                         <div class="form-group">

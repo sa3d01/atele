@@ -10,4 +10,8 @@
     <script>
         $.Notification.notify('success','top left','تم الحذف بنجاح');
     </script>
+@elseif (session()->has('notice'))
+    <script>
+        $.Notification.notify('success','top left','تم التعديل بنجاح');
+    </script>
 @endif

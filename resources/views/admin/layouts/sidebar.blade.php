@@ -5,12 +5,20 @@
                 <li>
                     <a href="{{url('admin')}}" class="waves-effect"><i class="ti-home"></i> <span> لوحة التحكم </span></a>
                 </li>
+                <li class="has_sub">
+                    <a href="javascript:void(0);" class="waves-effect"><i
+                            class="fa fa-user"></i><span>إدارة الباقات</span></a>
+                    <ul class="list-unstyled">
+                        <li><a href="{{route('package.index')}}">عرض الكل</a></li>
+                    </ul>
+                </li>
                 <li class="text-muted menu-title"></li>
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i
                             class="fa fa-user"></i><span>إدارة العملاء</span></a>
                     <ul class="list-unstyled">
-                        <li><a href="{{route('user.index')}}">عرض الكل</a></li>
+                        <li><a href="{{route('user.approved')}}">العمﻻء المفعلين</a></li>
+                        <li><a href="{{route('user.blocked')}}">العمﻻء المحظورين</a></li>
                         <li><a href="{{route('user.create')}}">إضافة</a></li>
                     </ul>
                 </li>

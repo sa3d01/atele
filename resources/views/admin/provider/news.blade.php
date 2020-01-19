@@ -9,11 +9,9 @@
 @section('content')
     <div class="content">
         <div class="container">
-            <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card-box table-responsive">
-                        <h4 class="m-t-0 header-title"><b><i class="icon-pencil before_word"></i>&nbsp;{{ $module_name }}</b><hr></h4>
                         <table id="datatable-buttons" class="table table-striped table-bordered">
                             <thead>
                             <tr>
@@ -21,7 +19,8 @@
                                     <th> {{ $labels }} </th>
                                 @endforeach
                                 <th> الصورة الشخصية</th>
-                                <th> التحكم</th>
+                                <th> الحالة</th>
+{{--                                <th> التفاصيل</th>--}}
                             </tr>
                             </thead>
                             <tbody>
@@ -29,14 +28,14 @@
                                 <tr>
                                     @foreach($index_fields as $labels => $fields)
                                         @if($row->$fields==null)
-                                            <td> ﻻ يوجد </td>
+                                            <td> ﻻ يوجد</td>
                                         @else
                                             <td> {{ $row->$fields }} </td>
                                         @endif
                                     @endforeach
                                     <td data-toggle="modal" data-target="#myModal{{$row->id}}"><img
-                                            class="img-preview" src="{{ $row->image }}"
-                                            style="height: 85px;width: 85px; border-radius: 50%"></td>
+                                                class="img-preview" src="{{ $row->image }}"
+                                                style="height: 85px;width: 85px; border-radius: 50%"></td>
                                     <div id="myModal{{$row->id}}" class="modal fade" role="img">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
@@ -55,36 +54,32 @@
                                         </div>
                                     </div>
                                     <th>
-                                        <form style='margin-top: 20px' method='POST' data-id={{$row->id}} action='{{route('admin_status_user', ['id' => $row->id])}}' @if($row->admin_status=='approved') class='form-horizontal deactivate' @else class='form-horizontal activate' @endif>
+                                        <form style='margin-top: 20px' method='POST' data-id={{$row->id}} action='{{route('provider.block', ['id' => $row->id])}}' class='form-horizontal deactivate'>
                                             <input type='hidden' name='_token' value='{{csrf_token()}}'>
-                                            @if($row->admin_status == 'approved')
                                                 <button type='submit' class='btn btn-danger btn-rounded waves-effect waves-light'>
                                                     <span class='btn-label'><i class='fa fa-times'></i></span>
-                                                    حظر
+                                                    رفض
                                                 </button>
-                                            @elseif($row->admin_status == 'blocked')
+                                        </form>
+                                        <form style='margin-top: 20px' method='POST' data-id={{$row->id}} action='{{route('provider.approve', ['id' => $row->id])}}' class='form-horizontal activate'>
+                                            <input type='hidden' name='_token' value='{{csrf_token()}}'>
                                                 <button type='submit' class='btn btn-success btn-rounded waves-effect waves-light'>
                                                     <span class='btn-label'><i class='fa fa-check'></i></span>
-                                                    تفعيل
+                                                    قبول
                                                 </button>
-                                            @endif
                                         </form>
                                     </th>
-                                    {{--                                        <td class="actions">--}}
-                                    {{--                                            <div class="row" style="margin-top: 15px">--}}
-                                    {{--                                                <div class="col-md-2">--}}
-                                    {{--                                                    {!! Form::open(['method' => 'DELETE','data-id'=>$row->id, 'route' => [$route.'.destroy',$row->id], 'style'=>'width:125px','class'=>'delete']) !!}--}}
-                                    {{--                                                    {!! Form::hidden('id', $row->id) !!}--}}
-                                    {{--                                                    <button type="button"  class="btn btn-danger btn-custom waves-effect waves-light"><i class="fa fa-trash"></i></button>--}}
-                                    {{--                                                    {!! Form::close() !!}--}}
-                                    {{--                                                </div>--}}
-                                    {{--                                                <div class="col-md-2">--}}
-                                    {{--                                                    <a href="{{route($route.'.edit',$row->id)}}">--}}
-                                    {{--                                                        <button type="button" class="btn btn-info btn-custom waves-effect waves-light"><i class="fa fa-edit"></i></button>--}}
-                                    {{--                                                    </a>--}}
-                                    {{--                                                </div>--}}
-                                    {{--                                            </div>--}}
-                                    {{--                                        </td>--}}
+{{--                                    <td class="actions">--}}
+{{--                                        <div class="row" style="margin-top: 20px">--}}
+{{--                                            <div class="col-md-3">--}}
+{{--                                                <a href="{{route($route.'.show',$row->id)}}">--}}
+{{--                                                    <button type="button"--}}
+{{--                                                            class="btn btn-info btn-custom waves-effect waves-light"><i--}}
+{{--                                                                class="fa fa-eye"></i></button>--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </td>--}}
                                 </tr>
                             @endforeach
                             </tbody>
@@ -107,11 +102,59 @@
     <script src="{{asset('panel/assets/plugins/datatables/buttons.html5.min.js')}}"></script>
     <script src="{{asset('panel/assets/plugins/datatables/buttons.print.min.js')}}"></script>
     <script src="{{asset('panel/assets/pages/datatables.init.js')}}"></script>
-    <script src="{{asset('panel/assets/dropify/dist/js/dropify.min.js')}}"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('.dt-buttons').show();
         });
         TableManageButtons.init();
     </script>
+    <script>
+        $(document).on('click', '.deactivate', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            swal({
+                    title: "هل انت متأكد من الرفض ؟",
+                    text: "سيتم نقل المستخدم لقائمة الغير مفعلين!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger',
+                    confirmButtonText: 'نعم , قم بالرفض!',
+                    cancelButtonText: 'ﻻ , الغى عملية الرفض!',
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        swal("تم الرفض !", "تم رفض العنصر !", "success");
+                        $("form:first[data-id='" + id + "']").submit();
+                    } else {
+                        swal("تم الالغاء", "ما زال العنصر متاح  :)", "error");
+                    }
+                });
+        });
+        $(document).on('click', '.activate', function (e) {
+            e.preventDefault();
+            var id = $(this).data('id');
+            swal({
+                    title: "هل انت متأكد من القبول ؟",
+                    text: "سيتم نقل المستخدم لقائمة المفعلين!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: 'btn-danger',
+                    confirmButtonText: 'نعم , قم بالقبول!',
+                    cancelButtonText: 'ﻻ , الغى عملية القبول!',
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        swal("تم القبول !", "تم قبول العنصر !", "success");
+                        $("form[data-id='" + id + "']").submit();
+                    } else {
+                        swal("تم الالغاء", "ما زال العنصر متاح  :)", "error");
+                    }
+                });
+        });
+    </script>
+
 @endsection

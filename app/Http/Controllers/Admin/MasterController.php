@@ -52,7 +52,7 @@ abstract class MasterController extends Controller
 
     public function store(Request $request)
     {
-        $this->validate($request, $this->validation_func(1));
+        $this->validate($request, $this->validation_func(1),$this->validation_msg());
         $this->model->create($request->all());
         return redirect('admin/' . $this->route . '')->with('created', 'تمت الاضافة بنجاح');
     }

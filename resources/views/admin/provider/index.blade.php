@@ -20,7 +20,8 @@
                             @foreach($index_fields as $labels => $fields)
                                 <th> {{ $labels }} </th>
                             @endforeach
-                                <th> عدد الطلبات </th>
+                                <th> الصورة الشخصية</th>
+                                <th> التحكم</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -29,25 +30,46 @@
                                     @foreach($index_fields as $labels => $fields)
                                         @if($row->$fields==null)
                                             <td> ﻻ يوجد </td>
-                                        @elseif(strpos($row->$fields, '.png') || strpos($row->$fields, '.jpg') || strpos($row->$fields, '.jpeg'))
-                                            <td data-toggle="modal" data-target="#myModal{{$row->id}}"> <img class="img_preview img-circle" src="{{$row->image}}" style="height: 70px;width: 80px;"> </td>
-                                            <div id="myModal{{$row->id}}" class="modal fade" role="img">
-                                                <div class="modal-dialog">
-                                                    <div class="modal-content">
-                                                        <div class="modal-body">
-                                                            <img data-toggle="modal" data-target="#myModal{{$row->id}}" class="img-preview" src="{{$row->image}}" style="max-height: 500px">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-default" data-dismiss="modal">إغﻻق</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         @else
                                             <td> {{ $row->$fields }} </td>
                                         @endif
                                     @endforeach
-                                        <td> {{$row->orders->count()}} </td>
+                                        <td data-toggle="modal" data-target="#myModal{{$row->id}}"><img
+                                                class="img-preview" src="{{ $row->image }}"
+                                                style="height: 85px;width: 85px; border-radius: 50%"></td>
+                                        <div id="myModal{{$row->id}}" class="modal fade" role="img">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-body">
+                                                        <img data-toggle="modal" data-target="#myModal{{$row->id}}"
+                                                             class="img-preview"
+                                                             src="{{ $row->image }}"
+                                                             style="max-height: 500px">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default"
+                                                                data-dismiss="modal">Close
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <th>
+                                            <form style='margin-top: 20px' method='POST' data-id={{$row->id}} action='{{route('admin_status_user', ['id' => $row->id])}}' @if($row->admin_status=='approved') class='form-horizontal deactivate' @else class='form-horizontal activate' @endif>
+                                                <input type='hidden' name='_token' value='{{csrf_token()}}'>
+                                                @if($row->admin_status == 'approved')
+                                                    <button type='submit' class='btn btn-danger btn-rounded waves-effect waves-light'>
+                                                        <span class='btn-label'><i class='fa fa-times'></i></span>
+                                                        حظر
+                                                    </button>
+                                                @elseif($row->admin_status == 'blocked')
+                                                    <button type='submit' class='btn btn-success btn-rounded waves-effect waves-light'>
+                                                        <span class='btn-label'><i class='fa fa-check'></i></span>
+                                                        تفعيل
+                                                    </button>
+                                                @endif
+                                            </form>
+                                        </th>
 {{--                                        <td class="actions">--}}
 {{--                                            <div class="row" style="margin-top: 15px">--}}
 {{--                                                <div class="col-md-2">--}}

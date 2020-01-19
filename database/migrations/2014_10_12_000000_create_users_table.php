@@ -30,6 +30,8 @@ class CreateUsersTable extends Migration
             $table->enum('device_type', ['android', 'ios'])->default('ios');
             $table->string('password')->nullable();
             $table->string('site_url')->nullable();
+            $table->bigInteger('package_id')->unsigned()->nullable();
+            $table->foreign('package_id')->references('id')->on('packages');
             $table->rememberToken();
             $table->timestamps();
         });

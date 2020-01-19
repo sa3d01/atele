@@ -18,11 +18,11 @@
     <div class="col-md-6 col-lg-3">
         <div class="widget-bg-color-icon card-box fadeInDown animated">
             <div class="bg-icon bg-icon-inverse pull-left">
-                <i class="md md-directions-bus text-inverse"></i>
+                <i class="md md-shop text-inverse"></i>
             </div>
             <div class="text-right">
                 <h3 class="text-dark"><b class="counter">{{$providers->count()}}</b></h3>
-                <p class="text-muted">مقدمين الخدمات</p>
+                <p class="text-muted">دور الأزياء</p>
             </div>
             <div class="clearfix"></div>
         </div>

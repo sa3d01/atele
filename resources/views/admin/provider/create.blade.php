@@ -17,25 +17,59 @@
                         {!! Form::open(['method'=>'post', 'files'=>true, 'enctype' => 'multipart/form-data', 'route'=>[$route.'.store'], 'class' => 'form-row-seperated add_ads_form']) !!}
                         {!! Form::hidden('type','provider') !!}
                         <div class="row">
-                            <div class="col-md-12">
-                                @foreach($create_fields as $labels => $fields)
-                                    @if($fields=='image')
-                                        <div class="white-box">
-                                            <label for="input-file-now-custom-1">{{ $labels }}</label>
-                                            <input name="image" type="file" id="input-file-now-custom-1" class="dropify" data-default-file="{{asset('images/user/admin.png')}}"/>
-                                            @if ($errors->has($fields))
-                                                <small class="text-danger">{{ $errors->first($fields) }}</small>
-                                            @endif
-                                        </div>
-                                        <br>
-                                    @else
-                                        <div class="form-group{{ $errors->has($fields) ? ' has-error' : '' }}">
-                                            <label for="title">{{ $labels }}</label>
-                                            {!! Form::text($fields, null, ['class'=>'form-control']) !!}
-                                        </div>
-                                        <br>
+                            <div class="col-md-6">
+                                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                        <label for="title">الاسم</label>
+                                        {!! Form::text('name', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                                    <div class="form-group{{ $errors->has('mobile') ? ' has-error' : '' }}">
+                                        <label for="title">رقم الجوال</label>
+                                        {!! Form::number('mobile', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                                        <label for="title">البريد الالكترونى</label>
+                                        {!! Form::email('email', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                        <label>كلمة المرور</label>
+                                        {!! Form::text('password', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                                    <div class="form-group{{ $errors->has('site_url') ? ' has-error' : '' }}">
+                                        <label>رابط الموقع الشخصي</label>
+                                        {!! Form::url('site_url', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                                    <div class="form-group{{ $errors->has('note') ? ' has-error' : '' }}">
+                                        <label>وصف</label>
+                                        {!! Form::textarea('note', null, ['class'=>'form-control']) !!}
+                                    </div>
+                                    <br>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="white-box">
+                                    <label for="input-file-now-custom-1">الصورة المعبرة</label>
+                                    <input name="image" type="file" id="input-file-now-custom-1" class="dropify" data-default-file="{{asset('images/user/admin.png')}}"/>
+                                    @if ($errors->has('image'))
+                                        <small class="text-danger">{{ $errors->first('image') }}</small>
                                     @endif
-                                @endforeach
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        {{ Form::select('type', $type, null, array('class' => 'form-control','style'=>"margin-bottom: 10px",'id'=>'type')) }}
+                                    </div>
+                                </div>
+                                {{--optional--}}
+                                <div class="form-group">
+                                    <div class="col-xs-12" id="library_type" hidden>
+                                        {{ Form::select('library_type', $library_type, null, array('class' => 'form-control','style'=>"margin-bottom: 10px")) }}
+                                    </div>
+                                </div>
+                                {{--end optional--}}
                             </div>
                         </div>
                         <div class="form-group">
