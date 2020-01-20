@@ -22,7 +22,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name', 'type', 'mobile', 'email', 'image', 'apiToken', 'device_token',
-        'device_type', 'activation_code', 'status', 'admin_status','site_url', 'password',
+        'device_type', 'activation_code', 'status', 'admin_status','site_url', 'password','package_id'
     ];
 
     /**
@@ -69,7 +69,7 @@ class User extends Authenticatable
         }
     }
 
-    protected $index_fields = ['id', 'name', 'type', 'mobile', 'email', 'image','site_url','note'];
+    protected $index_fields = ['id', 'name', 'type', 'mobile', 'email', 'image','site_url','note','package_id'];
 
     public function static_model()
     {

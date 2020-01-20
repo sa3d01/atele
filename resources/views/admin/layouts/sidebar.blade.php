@@ -70,9 +70,9 @@
 {{--                    </ul>--}}
 {{--                </li>--}}
                 <li class="text-muted menu-title"></li>
-                <li class="has_sub">
-                    <a href="{{route('setting.get_setting')}}" class="waves-effect"><i class="md md-settings"></i><span> الإعدادات العامة</span></a>
-                </li>
+{{--                <li class="has_sub">--}}
+{{--                    <a href="{{route('setting.get_setting')}}" class="waves-effect"><i class="md md-settings"></i><span> الإعدادات العامة</span></a>--}}
+{{--                </li>--}}
             </ul>
         </div>
     </div>
