@@ -60,16 +60,16 @@
                                 <br>
                                 <div class="form-group">
                                     <div class="col-xs-12">
-                                        {{ Form::select('type', $type, null, array('class' => 'form-control','style'=>"margin-bottom: 10px",'id'=>'type')) }}
+                                        {{ Form::select('main_package_id', ['1'=>'مجانية','2'=>'مدى الحياة',null=>'قم باختيار عضوية'], null, array('class' => 'form-control','style'=>"margin-bottom: 10px",'id'=>'type')) }}
                                     </div>
                                 </div>
-                                {{--optional--}}
+{{--                                optional--}}
                                 <div class="form-group">
-                                    <div class="col-xs-12" id="library_type" hidden>
-                                        {{ Form::select('library_type', $library_type, null, array('class' => 'form-control','style'=>"margin-bottom: 10px")) }}
+                                    <div class="col-xs-12" id="plus_type">
+                                        {{ Form::select('sub_package_id', ['3'=>'أساسية','4'=>'إدارية','5'=>'مميزة'], null, array('class' => 'form-control','style'=>"margin-bottom: 10px")) }}
                                     </div>
                                 </div>
-                                {{--end optional--}}
+{{--                                end optional--}}
                             </div>
                         </div>
                         <div class="form-group">
@@ -123,6 +123,16 @@
                     drDestroy.init();
                 }
             })
+        });
+    </script>
+    <script>
+        $('#type').change(function(){
+            let type = $(this).val();
+            if(type === ''){
+                $("#plus_type").removeAttr('hidden');
+            }else{
+                $("#plus_type").attr('hidden','hidden');
+            }
         });
     </script>
 @stop

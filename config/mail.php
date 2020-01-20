@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'mail.smtp2go.com'),
+    'host' => env('MAIL_HOST', 'mail.sa3d01.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 2525),
+    'port' => env('MAIL_PORT', 465),
 
     /*
     |--------------------------------------------------------------------------
@@ -71,7 +71,7 @@ return [
     |
     */
 
-    'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+    'encryption' => env('MAIL_ENCRYPTION', 'ssl'),
 
     /*
     |--------------------------------------------------------------------------
@@ -86,7 +86,7 @@ return [
 
     'username' => env('MAIL_USERNAME','contact@sa3d01.com'),
 
-    'password' => env('MAIL_PASSWORD','Y7aPntzBKNV8'),
+    'password' => env('MAIL_PASSWORD','PU){XNZP,&[D'),
 
     /*
     |--------------------------------------------------------------------------

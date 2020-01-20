@@ -22,7 +22,8 @@ abstract class MasterController extends Controller
     public function __construct()
     {
         $users = User::whereType('user')->get();
-        $providers = User::whereType('provider')->get();
+        $approved_providers = User::where(['type'=>'provider','admin_status'=>'approved'])->get();
+        $new_providers = User::where(['type'=>'provider','admin_status'=>'pinned'])->get();
         $this->middleware('auth:admin');
         view()->share(array(
             'module_name' => $this->module_name,
@@ -35,7 +36,8 @@ abstract class MasterController extends Controller
             'json_fields' => $this->json_fields,
             //
             'users' => $users,
-            'providers' => $providers,
+            'approved_providers' => $approved_providers,
+            'new_providers' => $new_providers,
         ));
     }
 

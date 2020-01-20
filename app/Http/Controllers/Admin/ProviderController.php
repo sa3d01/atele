@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Mail\ConfirmCode;
+use App\Mail\WelcomeAtele;
 use App\Models\Notification;
+use App\Package;
 use App\User;
 use Edujugon\PushNotification\PushNotification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ProviderController extends MasterController
 {
@@ -109,7 +113,15 @@ class ProviderController extends MasterController
         $this->validate($request, $this->validation_func(1),$this->validation_msg());
         $all = $request->all();
         $all['admin_status'] = 'approved';
+        if ($request['main_package_id']!=null){
+            $all['package_id']=$request['main_package_id'];
+        }else{
+            $all['package_id']=$request['sub_package_id'];
+        }
         $this->model->create($all);
+        $package=Package::find('id',$all['package_id']);
+        $package_name=$package->name['ar'];
+        Mail::to($request['email'])->send(new WelcomeAtele($package_name));
         return redirect('admin/' . $this->route . '/approved')->with('created', 'تمت الاضافة بنجاح');
     }
 
