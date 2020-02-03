@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -48,7 +49,7 @@ class UserController extends Controller
     }
 
     function send_code($email,$activation_code){
-        Mail::to($email)->send(new ConfirmCode($activation_code));
+     //   Mail::to($email)->send(new ConfirmCode($activation_code));
     }
 
     function user(){
@@ -103,9 +104,9 @@ class UserController extends Controller
         $user = User::where('apiToken', $split['1'])->first();
         if(!$user)
             return response()->json(['status' => 401],401);
-        if (!$request['activation_code'] || ($user->activation_code != $request['activation_code'])) {
-            return response()->json(['status' => 400, 'msg' => 'رقم التفعيل غير صحيح'],400);
-        }
+        // if (!$request['activation_code'] || ($user->activation_code != $request['activation_code'])) {
+        //     return response()->json(['status' => 400, 'msg' => 'رقم التفعيل غير صحيح'],400);
+        // }
         $user->update(['status' => 1, 'activation_code' => null]);
         $user->refresh();
         return response()->json(['status' => 200,'apiToken'=>$user->apiToken,'admin_status'=>$user->admin_status, 'data' => $user->static_model()]);
@@ -171,6 +172,7 @@ class UserController extends Controller
             return response()->json(['status' => 400, 'msg' => 'كلمة المرور القديمة غير صحيحة'],400);
         }
     }
+
     public function reset_password(Request $request)
     {
         $validator = Validator::make($request->all(), ['password']);
@@ -187,6 +189,11 @@ class UserController extends Controller
         $row = User::find($id);
         if (!$row)
             return response()->json(['status' => 400, 'msg' => 'something happen']);
-        return response()->json(['status' => 200, 'data' => $row->static_model()]);
+        $products=Product::where('user_id',$id)->get();
+        $data=[];
+        foreach ($products as $product) {
+            $data[]=$product->static_model();
+        }
+        return response()->json(['status' => 200,'products'=>$data, 'data' => $row->static_model()]);
     }
 }

@@ -34,6 +34,14 @@
                 </li>
 {{--                <li class="has_sub">--}}
 {{--                    <a href="javascript:void(0);" class="waves-effect"><i--}}
+{{--                            class="fa fa-image"></i><span>إدارة المنتجات</span></a>--}}
+{{--                    <ul class="list-unstyled">--}}
+{{--                        <li><a href="{{route('product.create')}}">إضافة</a></li>--}}
+{{--                        <li><a href="{{route('product.index')}}">عرض الكل </a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
+{{--                <li class="has_sub">--}}
+{{--                    <a href="javascript:void(0);" class="waves-effect"><i--}}
 {{--                            class="fa fa-chart-line"></i><span>إدارة فترات العمل</span></a>--}}
 {{--                    <ul class="list-unstyled">--}}
 {{--                        <li><a href="{{route('shift.index')}}">عرض الكل</a></li>--}}

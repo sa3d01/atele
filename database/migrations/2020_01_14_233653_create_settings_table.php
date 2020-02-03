@@ -19,6 +19,9 @@ class CreateSettingsTable extends Migration
             $table->string('email')->nullable();
             $table->json('about')->nullable();
             $table->json('terms')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('insta')->nullable();
+            $table->string('twitter')->nullable();
             $table->timestamps();
         });
     }

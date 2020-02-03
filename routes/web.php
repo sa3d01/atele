@@ -50,4 +50,6 @@ Route::group(['prefix' => '/admin', 'namespace' => 'Admin'], function () {
     Route::get('provider/approved', 'ProviderController@approved_providers')->name('provider.approved');
     Route::get('provider/blocked', 'ProviderController@blocked_providers')->name('provider.blocked');
     Route::resource('provider', 'ProviderController');
+
+    Route::resource('product', 'ProductController');
 });
